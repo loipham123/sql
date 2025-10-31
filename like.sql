@@ -16,5 +16,6 @@ select * from hoc_sinh where char_length(ho_ten_hs) <= 30 and ho_ten_hs like 'N%
 -- h. Những học sinh có họ tên bắt đầu bằng các ký tự: N, T, V.
 select * from hoc_sinh where ho_ten_hs like 'N%' or ho_ten_hs like 'T%' or ho_ten_hs like 'V%';
 -- i. Những học sinh có họ tên không được bắt đầu bằng các ký tự: N, T, V.
-
+select * from hoc_sinh where ho_ten_hs not like 'N%' and ho_ten_hs not like 'T%' and ho_ten_hs not like 'V%';
 -- j. Những học sinh có họ tên với phần họ có đúng 4 ký tự.
+select * from hoc_sinh where substring_index(ho_ten_hs,' ',1) like '____';
