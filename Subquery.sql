@@ -37,4 +37,9 @@ having avg(kq.diem_thi_cuoi_ky) between 5 and 10;
 -- đã từng thi cuối kỳ cho ít nhất 1 môn. 
 -- Dựa vào cột điểm thi cuối kỳ để tính. Chỉ hiển thị những học sinh có điểm trung bình trên 8
 select hs.ho_ten_hs, avg(kq.diem_thi_cuoi_ky) as 'Điểm trung bình'
+from hoc_sinh hs
+join ket_qua_hoc_tap kq on hs.ma_hs=kq.ma_hs
+where diem_thi_cuoi_ky is not null
+group by hs.ma_hs,kq.ma_hs
+having avg(kq.diem_thi_cuoi_ky) > 8;
 
